@@ -6,11 +6,9 @@ import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 
 const Product = ({ product}) => {
- if(product){
+ 
   return (
-   
-    
-    <Card className='my-3 p-3 rounded card' key>
+    <Card className='my-3 p-3 rounded card' style={{height:"400px"}}>
     <Link to={`/product/${product._id}`}>
         <Card.Img src={product.image} variant='top' style={{height:"200px"}}/>
     </Link>
@@ -35,7 +33,7 @@ const Product = ({ product}) => {
     
    
   )
- }
+
 }
 
 export default Product

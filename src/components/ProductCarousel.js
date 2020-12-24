@@ -43,7 +43,7 @@ const ProductCarousel = () => {
               <div className="carousel-img">
                 {" "}
                 <Image
-                  style={{ width: "700px", height: "250px" }}
+                  style={{ width: "500px", height: "250px" }}
                   src={product.image}
                   alt={product.name}
                   className="carousel-product-img"

@@ -33,7 +33,7 @@ const OrderScreen = () => {
 
   useEffect(() => {
     const addPayPalScript=async()=>{
-    const {data:clientId}=await axios.get("/api/config/paypal")
+    const {data:clientId}=await axios.get("https://doctorsportalapi.herokuapp.com/api/config/paypal")
     console.log(clientId)
     const script=document.createElement('script')
     script.type="text/javascript"
@@ -172,7 +172,7 @@ return loading ? (
               <ListGroup.Item>
                 {loadingPay && <Loader/>}
 
-                {!sdkReady ? <Loader/>:(<PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler}/>)}
+                {!sdkReady ? <Loader/>:(<PayPalButton amount={order.totalPrice} onSuccess={successPaymentHandler} key={order._id}/>)}
               </ListGroup.Item>
             )}
           </ListGroup>

@@ -7,8 +7,8 @@ import Product from './Product'
 
 const ItemMenu = () => {
   const dispatch = useDispatch();
-  // const [product, setProduct] = useState([]);
-  const [item, setItem] = useState("accessories");
+
+  const [item, setItem] = useState("laptop");
   console.log(item);
 
   const productList = useSelector((state) => state.productList);
@@ -18,7 +18,7 @@ const ItemMenu = () => {
     dispatch(listProducts);
   }, [item]);
 
-  const product = products.filter((it) => it.category.toLowerCase() === item);
+  const product = products?.filter((it) => it.category.toLowerCase() === item);
 
   return (
     <>
@@ -63,17 +63,24 @@ const ItemMenu = () => {
           >
             <p>Tab</p>
           </div>
+
+          <div
+            className={item === "watch" ? "active nav__link" : "nav__link"}
+            onClick={() => setItem("watch")}
+          >
+            <p>Smart Watch</p>
+          </div>
         </div>
 
         <Row>
           {item === "accessories" &&
-            products.map((pd) => (
+            products?.map((pd) => (
               <Col key={pd._id} sm={12} md={6} lg={4} xl={3}>
                 <Product product={pd} />
               </Col>
             ))}
 
-          {product.map((pd) => (
+          {product?.map((pd) => (
             <Col key={pd._id} sm={12} md={6} lg={4} xl={3}>
               <Product product={pd} />
             </Col>
